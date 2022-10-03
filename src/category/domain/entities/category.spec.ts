@@ -68,7 +68,7 @@ describe("Category Unit Tests", () => {
     data.forEach((i) => {
       const category = new Category(i.props, i.id as any);
       expect(category.id).not.toBeNull();
-      expect(category.id).toBeInstanceOf(UniqueEntityId);
+      expect(category.uniqueEntityId).toBeInstanceOf(UniqueEntityId);
     });
   });
   test("getter of name props", () => {
@@ -99,6 +99,39 @@ describe("Category Unit Tests", () => {
 
     category["description"] = null;
     expect(category.description).toBeNull();
+  });
+
+  test("update description and name props", () => {
+    const arrange = {
+      name: "movie",
+      description: "some description",
+    };
+    let category = new Category({
+      name: null,
+    });
+
+    category.update(arrange.name, null);
+
+    expect(category.name).toBe("movie");
+    expect(typeof category.name).toBe("string");
+    expect(category.description).toBeNull();
+
+    category.update(null, arrange.description);
+
+    expect(category.description).toBe("some description");
+    expect(typeof category.description).toBe("string");
+    expect(category.name).toBeNull();
+  });
+
+  test("activate and deactivate props", () => {
+    let category = new Category({ name: "Movie" });
+    category.activate();
+    expect(category.is_active).toBeTruthy();
+    expect(typeof category.is_active).toBe("boolean");
+
+    category.deactivate();
+    expect(category.is_active).toBeFalsy();
+    expect(typeof category.is_active).toBe("boolean");
   });
 
   test("getter and setter of is_active prop", () => {
