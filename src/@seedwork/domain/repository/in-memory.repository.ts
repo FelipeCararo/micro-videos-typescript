@@ -55,7 +55,7 @@ export abstract class InMemorySearchableRepository<E extends Entity>
   implements SearchableRepositoryInterface<E>
 {
   sortableFields: string[] = [];
-  async search(props: SearchParams): Promise<SearchResult<E>> {
+  async search(props: SearchParams<any>): Promise<SearchResult<E>> {
     const itemsFiltered = await this.applyFilter(this.items, props.filter);
     const itemsSorted = await this.applySort(
       itemsFiltered,
@@ -106,8 +106,8 @@ export abstract class InMemorySearchableRepository<E extends Entity>
 
   protected async applyPaginate(
     items: E[],
-    page: SearchParams["page"],
-    per_page: SearchParams["per_page"]
+    page: SearchParams<any>["page"],
+    per_page: SearchParams<any>["per_page"]
   ): Promise<E[]> {
     const start = (page - 1) * per_page; // 1 * 15 = 15
     const limit = start + per_page; // 15 + 15 = 30
