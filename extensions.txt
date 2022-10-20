@@ -48,3 +48,4 @@ whatwedo.twig
 wholroyd.jinja
 william-voyek.vscode-nginx
 xabikos.reactsnippets
+humao.rest-client
