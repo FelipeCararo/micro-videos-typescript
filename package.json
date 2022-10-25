@@ -17,6 +17,7 @@
   "scripts": {
     "prestart:dev": "npm run build -w @fc/app",
     "start:dev": "npm run build:w -w @fc/app & npm run start:dev -w nestjs",
+    "tsc:check": "npm run tsc:check -w @fc/app",
     "test": "jest"
   },
   "repository": {
