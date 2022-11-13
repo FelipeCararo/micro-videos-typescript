@@ -1,11 +1,9 @@
 import {
   CreateCategoryUseCase,
   ListCategoriesUseCase,
-  UpdateCategoryUseCase,
-  DeleteCategoryUseCase,
-  GetCategoryUseCase,
 } from '@fc/app/category/application';
 import { Inject, Injectable } from '@nestjs/common';
+import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
 
 @Injectable()
@@ -14,14 +12,14 @@ export class CategoriesService {
   @Inject(CreateCategoryUseCase.UseCase)
   private createUseCase: CreateCategoryUseCase.UseCase;
 
-  @Inject(UpdateCategoryUseCase.UseCase)
-  private updateUseCase: UpdateCategoryUseCase.UseCase;
+  // @Inject(UpdateCategoryUseCase.UseCase)
+  // private updateUseCase: UpdateCategoryUseCase.UseCase;
 
-  @Inject(DeleteCategoryUseCase.UseCase)
-  private deleteUseCase: DeleteCategoryUseCase.UseCase;
+  // @Inject(DeleteCategoryUseCase.UseCase)
+  // private deleteUseCase: DeleteCategoryUseCase.UseCase;
 
-  @Inject(GetCategoryUseCase.UseCase)
-  private getUseCase: GetCategoryUseCase.UseCase;
+  // @Inject(GetCategoryUseCase.UseCase)
+  // private getUseCase: GetCategoryUseCase.UseCase;
 
   @Inject(ListCategoriesUseCase.UseCase)
   private listUseCase: ListCategoriesUseCase.UseCase;

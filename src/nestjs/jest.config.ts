@@ -16,4 +16,5 @@ export default {
   moduleNameMapper: {
     '@fc/app/(.*)$': '<rootDir>/../../../node_modules/@fc/app/dist/$1',
   },
+  setupFilesAfterEnv: ['../../@core/src/@seedwork/domain/tests/jest.ts'],
 };
